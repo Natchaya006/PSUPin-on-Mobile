@@ -2,25 +2,27 @@
     "pins": [
       {
         "id": 1,
-        "username": "pkorawit",
-        "Name": "Korawit Prutsachainimmit",
-        "photo": "https://i.ytimg.com/vi/9U5HKwlHW1s/maxresdefault.jpg",
-        "lat": "7.8950425",
-        "lng": "98.352075",
         "title": "PSU Phuket",
-        "description": "Prince of Songkla University",
-        "likes": 7
+        "photo": "https://static.avforums.com/data/ytle/z4/Z4-qTjBdxR0/maxresdefault.jpg",
+        "lat": "7.89472",
+        "lng": "98.35220",
+        "description": "projector color cast broken",
+        "buliding":"1",
+        "room":"1202A",
+        "likes": 7,
+        "date":"10/10/2017"
       },
       {
         "id": 2,
-        "username": "pkorawit",
-        "Name": "Korawit Prutsachainimmit",
-        "photo": "http://static.asiawebdirect.com/m/phuket/portals/phuket-com/homepage/top10/top10-phuket-town-attractions/pagePropertiesImage/phuket-town-1.jpg",
-        "lat": "7.8950425",
-        "lng": "98.352075",
-        "title": "Phuket Town",
-        "description": "Debuk Street at Phuket",
-        "likes": 56
+        "photo": "https://c2.staticflickr.com/4/3208/3101886743_5d9c49b9a5_b.jpg",
+        "lat": "7.89331",
+        "lng": "98.35234",
+        "title": "PSU Phuket",
+        "description": "keybord broken",
+        "buliding":"6",
+        "room":"6307",
+        "likes": 56,
+        "date":"12/10/2017"
       }
     ]
   }
