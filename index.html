@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,72 @@
     <script src="js/onsenui.min.js"></script>
     <script src="script.js"></script>
 </head>
+
 <body>
-    
+    <!-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>stucture of page<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+    <ons-page ng-controller="yourController">
+        <ons-toolbar>
+            <div class="center">
+                <ons-icon icon="ion-aperture" id="iconHead"></ons-icon>
+                <b>PSU Pin</b>
+            </div>
+            <div class="right">
+                <ons-toolbar-button>
+                    <ons-icon icon="ion-navicon-round"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+        </ons-toolbar>
+        <ons-tabbar swipeable position="auto">
+            <ons-tab page="news.html" id="news" label="News" icon="ion-ios-clock" badge="7" active></ons-tab>
+            <ons-tab page="post.html" label="Post" icon="ion-camera" active-icon="ion-camera"></ons-tab>
+            <ons-tab page="map.html" label="Map" icon="ion-ios-location" active-icon="ion-ios-location"></ons-tab>
+        </ons-tabbar>
+    </ons-page>
+    <!-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>end stucture of page<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+
+    <!-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>page post<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+    <template id="post.html">
+        <ons-page id="post"></ons-page>
+    </template>
+    <!-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>end page post<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+
+    <!-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>page add pic<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+    <template id="addPic.html">
+        <ons-page id="addPic">
+            <div class="center" id="containerImage">
+                <img class="center" id="pic" src="img\pic.jpg" alt="">
+            </div>
+            <div class="center" id="containerContent">
+                <div class="row">
+                    <ons-icon class="set" icon="ion-ios-pricetags" id="iconTag"></ons-icon>
+                    <ons-select id="choose-sel" onchange="editSelects(event)">
+                        <option value="Faculty of Technology and Environment">Faculty of Technology and Environment</option>
+                        <option value="Faculty of International Studies, PSU Phuket">Faculty of International Studies</option>
+                        <option value="Faculty of Hospitality and Tourism">Faculty of Hospitality and Tourism</option>
+                        <option value="Phuket Community College">Phuket Community College</option>
+                    </ons-select>
+                    <ons-input id="room" modifier="underbar" placeholder="Room" float></ons-input>
+                </div>
+                <div class="row">
+                    <ons-icon class="set" icon="ion-ios-compose" id="iconComment"></ons-icon>
+                    <ons-input id="desc" modifier="underbar" placeholder="Description" float></ons-input>
+                </div>
+            </div>
+            <ons-fab position="top left" id="addImg">
+                <ons-icon icon="md-plus"></ons-icon>
+            </ons-fab>
+            <ons-fab position="bottom right" disabled>
+                <ons-icon icon="ion-checkmark"></ons-icon>
+            </ons-fab>
+        </ons-page>
+    </template>
+    <!-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>end page add pic<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+
+    <!-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>page mapPin<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+    <template id="mapPin.html">
+        <ons-page id="mapPin"></ons-page>
+    </template>
+    <!-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>end page map pin<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
 </body>
+
 </html>
