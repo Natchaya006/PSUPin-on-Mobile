@@ -1,4 +1,4 @@
 "#view mobile"
 "#run localhost json"
-"#emulate android"
+"#run http-server"
 
