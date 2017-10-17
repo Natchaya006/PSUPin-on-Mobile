@@ -1,0 +1,26 @@
+{
+    "pins": [
+      {
+        "id": 1,
+        "username": "pkorawit",
+        "Name": "Korawit Prutsachainimmit",
+        "photo": "https://i.ytimg.com/vi/9U5HKwlHW1s/maxresdefault.jpg",
+        "lat": "7.8950425",
+        "lng": "98.352075",
+        "title": "PSU Phuket",
+        "description": "Prince of Songkla University",
+        "likes": 7
+      },
+      {
+        "id": 2,
+        "username": "pkorawit",
+        "Name": "Korawit Prutsachainimmit",
+        "photo": "http://static.asiawebdirect.com/m/phuket/portals/phuket-com/homepage/top10/top10-phuket-town-attractions/pagePropertiesImage/phuket-town-1.jpg",
+        "lat": "7.8950425",
+        "lng": "98.352075",
+        "title": "Phuket Town",
+        "description": "Debuk Street at Phuket",
+        "likes": 56
+      }
+    ]
+  }
