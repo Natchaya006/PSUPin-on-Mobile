@@ -1,0 +1,28 @@
+{
+    "pins": [
+      {
+        "id": 1,
+        "title": "PSU Phuket",
+        "photo": "https://static.avforums.com/data/ytle/z4/Z4-qTjBdxR0/maxresdefault.jpg",
+        "lat": "7.89472",
+        "lng": "98.35220",
+        "description": "projector color cast broken",
+        "buliding":"Faculty of Technology and Environment",
+        "room":"1202A",
+        "likes": 7,
+        "date":"10/10/2017"
+      },
+      {
+        "id": 2,
+        "photo": "https://c2.staticflickr.com/4/3208/3101886743_5d9c49b9a5_b.jpg",
+        "lat": "7.89331",
+        "lng": "98.35234",
+        "title": "PSU Phuket",
+        "description": "keybord broken",
+        "buliding":"Phuket Community College",
+        "room":"6307",
+        "likes": 56,
+        "date":"12/10/2017"
+      }
+    ]
+  }

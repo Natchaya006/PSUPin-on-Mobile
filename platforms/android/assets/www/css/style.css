@@ -1,0 +1,23 @@
+#mapPin{
+    width:100%;
+    height:400px;
+}
+#iconHead {
+    margin-right: 2px;
+}
+#addImg{
+    margin-left: 175px;
+}
+#containerContent{
+    padding: 15px;
+}
+.row{
+    padding-top: 15px;
+}
+.set{
+    margin-right: 15px;
+    margin-top: 10px;
+}
+.size{
+    width: 330px;
+}
