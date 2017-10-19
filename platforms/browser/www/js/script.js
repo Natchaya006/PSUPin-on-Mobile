@@ -1,10 +1,10 @@
 $.get("http://localhost:3000/pins", function (data) {
     console.log(data);
     for (i = 0; i < data.length; i++) {
-        var lat = data[i].lat;
-        var lng = data[i].lng;
-        console.log(lat);
-        console.log(lng);
+        var latData = data[i].lat;
+        var lngData = data[i].lng;
+        console.log(latData);
+        console.log(lngData);
 
         function myMap() {
 
@@ -24,6 +24,8 @@ $.get("http://localhost:3000/pins", function (data) {
 ons.ready(function () {
     $("#add").click(function () {
         var onSuccess = function (position) {
+            var latGPS = position.coords.latitude;
+            var lngGPS = position.coords.longitude;
             alert('Latitude: ' + position.coords.latitude + '\n' +
                 'Longitude: ' + position.coords.longitude + '\n' +
                 'Altitude: ' + position.coords.altitude + '\n' +

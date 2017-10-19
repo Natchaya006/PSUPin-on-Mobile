@@ -1,49 +1,77 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+<html lang="en">
 
-    http://www.apache.org/licenses/LICENSE-2.0
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/onsenui.css">
+    <link rel="stylesheet" href="css/onsen-css-components.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/onsenui.min.js"></script>
+    <script src="js/script.js"></script>
+    </script>
+</head>
 
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
-    <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+<body>
+
+    <ons-page ng-controller="yourController">
+        <ons-toolbar>
+            <div class="center">
+                <ons-icon class = "set"icon="ion-aperture" id="iconHead" size = "25px"></ons-icon>
+                <b>PSU Pin</b>
             </div>
-        </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </body>
+        </ons-toolbar>
+        <ons-tabbar swipeable position="auto">
+            <ons-tab page="post.html" id="news" label="News" icon="ion-ios-clock" badge="7" active></ons-tab>
+            <ons-tab page="addPic.html" label="Post" icon="ion-camera" active-icon="ion-camera"></ons-tab>
+            <ons-tab page="mapPin.html" label="Map" icon="ion-ios-location" active-icon="ion-ios-location"></ons-tab>
+        </ons-tabbar>
+    </ons-page>
+
+    <template id="post.html">
+        <ons-page id="post"></ons-page>
+    </template>
+
+    <template id="addPic.html">
+        <ons-page id="addPic">
+            <div class="center" id="containerContent">
+                <div class="row" id="takeImg"></div>
+                <div class="row">
+                    <ons-button modifier="large">
+                        <ons-icon icon="ion-ios-camera" class = "center" size="50px"></ons-icon>
+                    </ons-button>
+                </div>
+                <div class="row">
+                    <ons-icon class="set" icon="ion-ios-pricetags"size="20px"></ons-icon>
+                    <ons-select id="choose-sel" onchange="editSelects(event)" class= "size">
+                        <option value="Faculty of Technology and Environment">Faculty of Technology and Environment</option>
+                        <option value="Faculty of International Studies, PSU Phuket">Faculty of International Studies</option>
+                        <option value="Faculty of Hospitality and Tourism">Faculty of Hospitality and Tourism</option>
+                        <option value="Phuket Community College">Phuket Community College</option>
+                    </ons-select>
+                </div>
+                <div class="row">
+                    <ons-icon class="set" icon="ion-ios-pricetags"size="20px"></ons-icon>
+                    <ons-input class = "size" id="room" modifier="underbar" placeholder="Room" float></ons-input>
+                </div>
+                <div class="row">
+                    <ons-icon class="set" icon="ion-ios-compose"size="20px"></ons-icon>
+                    <ons-input class = "size" id="desc" modifier="underbar" placeholder="Description" float></ons-input>
+                </div>
+            </div>
+            <ons-fab position="bottom right">
+                <ons-icon icon="ion-checkmark" id="add"></ons-icon>
+            </ons-fab>
+        </ons-page>
+    </template>
+
+    <template id="mapPin.html">
+        <ons-page id="mapPin"></ons-page>
+    </template>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjdNfJ3PB8sehpRknmnAB6rXpxTSHeBzg&callback=myMap"></script>
+</body>
+
 </html>

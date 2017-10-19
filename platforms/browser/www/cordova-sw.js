@@ -18,22 +18,56 @@ under the License.
 */
 
 // Note, these will be updated automatically at build time
-var CACHE_VERSION = '1508337745873';
+var CACHE_VERSION = '1508424427725';
 var CACHE_LIST = [
     "/config.xml",
     "/cordova-sw.js",
     "/cordova.js",
     "/cordova_plugins.js",
-    "/css/index.css",
+    "/css/font_awesome/css/font-awesome.css",
+    "/css/font_awesome/css/font-awesome.min.css",
+    "/css/font_awesome/fonts/fontawesome-webfont.eot",
+    "/css/font_awesome/fonts/fontawesome-webfont.svg",
+    "/css/font_awesome/fonts/fontawesome-webfont.ttf",
+    "/css/font_awesome/fonts/fontawesome-webfont.woff",
+    "/css/font_awesome/fonts/fontawesome-webfont.woff2",
+    "/css/font_awesome/fonts/FontAwesome.otf",
+    "/css/ionicons/css/ionicons.css",
+    "/css/ionicons/css/ionicons.min.css",
+    "/css/ionicons/fonts/ionicons.eot",
+    "/css/ionicons/fonts/ionicons.svg",
+    "/css/ionicons/fonts/ionicons.ttf",
+    "/css/ionicons/fonts/ionicons.woff",
+    "/css/material-design-iconic-font/css/material-design-iconic-font.css",
+    "/css/material-design-iconic-font/css/material-design-iconic-font.min.css",
+    "/css/material-design-iconic-font/fonts/Material-Design-Iconic-Font.eot",
+    "/css/material-design-iconic-font/fonts/Material-Design-Iconic-Font.svg",
+    "/css/material-design-iconic-font/fonts/Material-Design-Iconic-Font.ttf",
+    "/css/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff",
+    "/css/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff2",
+    "/css/onsen-css-components.css",
+    "/css/onsen-css-components.min.css",
+    "/css/onsenui.css",
+    "/css/onsenui.min.css",
+    "/css/preview.html",
+    "/css/style.css",
     "/favicon.ico",
-    "/img/logo.png",
+    "/img/pic.jpg",
     "/index.html",
-    "/js/index.js",
+    "/js/angular-onsenui.js",
+    "/js/angular-onsenui.min.js",
+    "/js/jquery-3.2.1.min.js",
+    "/js/onsenui.d.ts",
+    "/js/onsenui.js",
+    "/js/onsenui.min.js",
+    "/js/script.js",
+    "/json/db.json",
     "/manifest.json",
     "/plugins/cordova-plugin-camera/src/browser/CameraProxy.js",
     "/plugins/cordova-plugin-camera/www/Camera.js",
     "/plugins/cordova-plugin-camera/www/CameraConstants.js",
-    "/plugins/cordova-plugin-camera/www/CameraPopoverOptions.js"
+    "/plugins/cordova-plugin-camera/www/CameraPopoverOptions.js",
+    "/README.md"
 ];
 
 this.addEventListener('install', function (event) {
