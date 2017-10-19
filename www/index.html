@@ -14,9 +14,25 @@
     <script src="js/onsenui.min.js"></script>
     <script src="js/script.js"></script>
     <script id="template" type="x-tmpl-mustache">
-        <h3>{{title}}</h3>
-        <h4>{{buliding}}</h4>
-        <img src="{photo}}" alt="">
+        <div class="tweet-header">
+            <span class="list-item__title"><b>{{buliding}}</b></span>
+            <span id="dateCss"class="list-item__subtitle">{{date}}</span>
+            <ons-button class="option-arrow" modifier="quiet" onclick="ons.openActionSheet({
+              cancelable: true,
+              buttons: [
+                'Delete',
+                {
+                  label: 'Cancel',
+                  icon: 'md-close'
+                }
+              ]
+            })">
+              <ons-icon class = "right" icon="ion-close-round"></ons-icon>
+            </ons-button>
+            <span class="list-item__content"><h4>{{description}}</h4></span>
+            <img src="{{photo}}" style="width:100%">
+          </div>
+          
     </script>
 </head>
 
@@ -58,10 +74,10 @@
                 <div class="row">
                     <ons-icon class="set" icon="ion-ios-pricetags" size="20px"></ons-icon>
                     <ons-select id="choose-sel" onchange="editSelects(event)" class="size">
-                        <option value="Faculty of Technology and Environment">Faculty of Technology and Environment</option>
-                        <option value="Faculty of International Studies, PSU Phuket">Faculty of International Studies</option>
-                        <option value="Faculty of Hospitality and Tourism">Faculty of Hospitality and Tourism</option>
-                        <option value="Phuket Community College">Phuket Community College</option>
+                        <option value="Buliding 1">Buliding 1</option>
+                        <option value="Buliding 1A">Buliding 1A</option>
+                        <option value="Buliding 5">Buliding 5</option>
+                        <option value="Buliding 6">Buliding 6</option>
                     </ons-select>
                 </div>
                 <div class="row">

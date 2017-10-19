@@ -1,5 +1,4 @@
 $.get("http://localhost:3000/pins", function (data) {
-    console.log(data);
     var template = $('#template').html();
     for(var i=0;i<data.length;i++){
         var rendered = Mustache.render(template, data[i]);

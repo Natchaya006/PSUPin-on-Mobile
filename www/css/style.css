@@ -21,3 +21,15 @@
 .size{
     width: 330px;
 }
+.tweet-header{
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(191, 229, 240, 0.38);
+    border-radius: 10px;
+}
+.right{
+    padding-left:150px; 
+}
+#dateCss{
+    padding-left: 20px;
+}
