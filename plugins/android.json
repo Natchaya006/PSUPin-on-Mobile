@@ -17,5 +17,9 @@
       "PACKAGE_NAME": "com.example.hello.Natchaya006.Project"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.example.hello.Natchaya006.Project"
+    }
+  }
 }

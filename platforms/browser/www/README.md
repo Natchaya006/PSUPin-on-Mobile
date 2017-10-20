@@ -1,4 +1,4 @@
 "#view mobile"
-"#run localhost json"
-"#run http-server"
+"#use command:json-server --watch db.json"
+"#use command:http-server ."
 

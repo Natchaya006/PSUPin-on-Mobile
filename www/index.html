@@ -15,12 +15,12 @@
     <script src="js/script.js"></script>
     <script id="template" type="x-tmpl-mustache">
         <div class="tweet-header">
-            <span class="list-item__title"><b>{{buliding}}</b></span>
+            <span class="list-item__title"><U><b>{{buliding}}</b></U></span>
             <span id="dateCss"class="list-item__subtitle">{{date}}</span>
             <ons-button class="option-arrow" modifier="quiet" onclick="ons.openActionSheet({
               cancelable: true,
               buttons: [
-                'Delete',
+                'Delete ng-click="deletePin({{id}})',
                 {
                   label: 'Cancel',
                   icon: 'md-close'
@@ -29,7 +29,7 @@
             })">
               <ons-icon class = "right" icon="ion-close-round"></ons-icon>
             </ons-button>
-            <span class="list-item__content"><h4>{{description}}</h4></span>
+            <span class="list-item__content"><h4><ons-icon id="des" size "20px" icon="ion-paperclip"></ons-icon>{{description}}</h4></span>
             <img src="{{photo}}" style="width:100%">
           </div>
           
@@ -68,7 +68,7 @@
                 </div>
                 <div class="row">
                     <ons-button modifier="large">
-                        <ons-icon id="takePhoto" icon="ion-ios-camera" class="center" size="50px"></ons-icon>
+                        <ons-icon id="takePhoto" icon="ion-ios-camera" class="center" size="50px" ng-click="takePicture()"></ons-icon>
                     </ons-button>
                 </div>
                 <div class="row">

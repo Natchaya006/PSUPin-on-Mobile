@@ -3,7 +3,7 @@
     height:400px;
 }
 #iconHead {
-    margin-right: 2px;
+    margin-right: 5px;
 }
 #addImg{
     margin-left: 175px;
@@ -32,4 +32,7 @@
 }
 #dateCss{
     padding-left: 20px;
+}
+#des{
+    margin-right: 5px;
 }
