@@ -9,40 +9,36 @@
       "description": "projector color cast broken",
       "buliding": "Buliding 1",
       "room": "1202A",
-      "date": "10/10/2017"
+      "day": "20",
+      "month": "10",
+      "year": "2017",
+      "timeline": "2"
     },
     {
       "id": 2,
+      "title": "PSU Phuket",
       "photo": "https://c2.staticflickr.com/4/3208/3101886743_5d9c49b9a5_b.jpg",
       "lat": "7.89331",
       "lng": "98.35234",
-      "title": "PSU Phuket",
       "description": "keybord broken",
       "buliding": "Buliding 6",
       "room": "6307",
-      "date": "12/10/2017"
+      "day": "21",
+      "month": "10",
+      "year": "2017",
+      "timeline": "1"
     },
     {
       "photo": "https://vignette3.wikia.nocookie.net/lego/images/a/ac/No-Image-Basic.png",
-      "lat": "7.894741300000001",
-      "lng": "98.3521354",
+      "lat": "7.892668199999999",
+      "lng": "98.35486189999999",
       "title": "PSU Phuket",
-      "description": "keybord broken",
-      "buliding": "Buliding 6",
-      "room": "qweqwe",
-      "date": "Invalid Date",
+      "description": "asdasdasd",
+      "buliding": "Buliding 1",
+      "room": "asdasd",
+      "date": "22/10/2017",
+      "timeline": "Today",
       "id": 3
-    },
-    {
-      "photo": "https://vignette3.wikia.nocookie.net/lego/images/a/ac/No-Image-Basic.png",
-      "lat": "7.8947285",
-      "lng": "98.3521317",
-      "title": "PSU Phuket",
-      "description": "qweqweqwewqe",
-      "buliding": "Buliding 5",
-      "room": "qweqweqwe",
-      "date": "Invalid Date",
-      "id": 4
     }
   ]
 }

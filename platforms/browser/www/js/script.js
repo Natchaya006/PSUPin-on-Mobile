@@ -1,9 +1,41 @@
 var url = "http://localhost:3000/pins";
 $.get(url, function (data) {
     var template = $('#template').html();
+    var diffDays = 0;
     for (var i = 0; i < data.length; i++) {
         var rendered = Mustache.render(template, data[i]);
         $("#pin").append(rendered);
+        var newdata = {};
+        newdata.id = data[i].id;
+        newdata.title = data[i].title;
+        newdata.photo = data[i].photo;
+        newdata.lat = data[i].lat;
+        newdata.lng = data[i].lng;
+        newdata.description = data[i].description;
+        newdata.buliding = data[i].buliding;
+        newdata.room = data[i].room;
+        newdata.day = data[i].day;
+        newdata.month = data[i].month;
+        newdata.year = data[i].year;
+        var oneDay = 24 * 60 * 60 * 1000;
+        var today = new Date();
+        var firstDate = new Date(data[i].year, data[i].month, data[i].day);
+        var secondDate = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+        diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / (oneDay)));
+        if (diffDays === 0) {
+            newdata.timeline = "Today";
+        }
+        if (diffDays !== 0) {
+            newdata.timeline = diffDays;
+        }
+        JSON.stringify(newdata);
+        var updateUrl = url + "/" + data[i].id;
+        $.ajax({
+            url: updateUrl,
+            type: 'PUT',
+            data: newdata,
+            success: function (result) {}
+        });
     }
 });
 
@@ -28,11 +60,11 @@ ons.ready(function () {
                 'Heading: ' + position.coords.heading + '\n' +
                 'Speed: ' + position.coords.speed + '\n' +
                 'Timestamp: ' + position.timestamp + '\n');
-                var today = new Date();
-                var dd = today.getDate();
-                var mm = today.getMonth()+1; //January is 0!
-                var yyyy = today.getFullYear();
-                var date = dd+"/"+mm+"/"+yyyy;
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            var date = dd + "/" + mm + "/" + yyyy;
             $.post(url, {
                 photo: "https://vignette3.wikia.nocookie.net/lego/images/a/ac/No-Image-Basic.png",
                 lat: position.coords.latitude,
@@ -41,7 +73,8 @@ ons.ready(function () {
                 description: $("#desc").val(),
                 buliding: $("#choose-sel").val(),
                 room: $("#room").val(),
-                date: date
+                date: date,
+                timeline: "Today"
             });
             alert('complete');
         };
@@ -85,9 +118,4 @@ ons.ready(function () {
             map: map
         });
     }
-
-    function d() {
-        alert('rwe')
-    }
-
 });

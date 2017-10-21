@@ -16,7 +16,7 @@
     <script id="template" type="x-tmpl-mustache">
         <div class="tweet-header">
             <span class="list-item__title"><U><b>{{buliding}}</b></U></span>
-            <span id="dateCss" class="list-item__subtitle">{{date}}</span>
+            <span id="dateCss" class="list-item__subtitle">{{day}}/{{month}}/{{year}}</span>
             <ons-button class="option-arrow" modifier="quiet" onclick="ons.openActionSheet({
               cancelable: true,
               buttons: [
@@ -41,7 +41,7 @@
 </head>
 
 <body>
-
+<img src="" alt="">
     <ons-page ng-controller="yourController">
         <ons-toolbar>
             <div class="center">

@@ -9,7 +9,10 @@
       "description": "projector color cast broken",
       "buliding": "Buliding 1",
       "room": "1202A",
-      "date": "10/10/2017"
+      "day": 20,
+      "month":10,
+      "year":2017,
+      "timeline":2
     },
     {
       "id": 2,
@@ -20,29 +23,10 @@
       "description": "keybord broken",
       "buliding": "Buliding 6",
       "room": "6307",
-      "date": "12/10/2017"
-    },
-    {
-      "photo": "https://vignette3.wikia.nocookie.net/lego/images/a/ac/No-Image-Basic.png",
-      "lat": "7.894741300000001",
-      "lng": "98.3521354",
-      "title": "PSU Phuket",
-      "description": "keybord broken",
-      "buliding": "Buliding 6",
-      "room": "qweqwe",
-      "date": "Invalid Date",
-      "id": 3
-    },
-    {
-      "photo": "https://vignette3.wikia.nocookie.net/lego/images/a/ac/No-Image-Basic.png",
-      "lat": "7.8947285",
-      "lng": "98.3521317",
-      "title": "PSU Phuket",
-      "description": "qweqweqwewqe",
-      "buliding": "Buliding 5",
-      "room": "qweqweqwe",
-      "date": "Invalid Date",
-      "id": 4
+      "day": 21,
+      "month":10,
+      "year":2017,
+      "timeline":1
     }
   ]
 }
