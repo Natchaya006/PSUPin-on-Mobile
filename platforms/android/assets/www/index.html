@@ -16,23 +16,27 @@
     <script id="template" type="x-tmpl-mustache">
         <div class="tweet-header">
             <span class="list-item__title"><U><b>{{buliding}}</b></U></span>
-            <span id="dateCss"class="list-item__subtitle">{{date}}</span>
+            <span id="dateCss" class="list-item__subtitle">{{date}}</span>
             <ons-button class="option-arrow" modifier="quiet" onclick="ons.openActionSheet({
               cancelable: true,
               buttons: [
-                'Delete',
+                'Delete {{id}}',
                 {
                   label: 'Cancel',
                   icon: 'md-close'
                 }
               ]
+            }).then(function (index) { 
+                if(index===0){
+                    deletePin({{id}});
+                } 
             })">
-              <ons-icon class = "right" icon="ion-close-round"></ons-icon>
+                <ons-icon class="right" icon="ion-close-round"></ons-icon>
             </ons-button>
             <span class="list-item__content"><h4><ons-icon id="des" size "20px" icon="ion-paperclip"></ons-icon>{{description}}</h4></span>
             <img src="{{photo}}" style="width:100%">
-          </div>
-          
+        </div>
+
     </script>
 </head>
 
@@ -98,6 +102,7 @@
     <template id="mapPin.html">
         <ons-page id="mapPin"></ons-page>
     </template>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjdNfJ3PB8sehpRknmnAB6rXpxTSHeBzg&callback=myMap"></script>
 </body>
 
