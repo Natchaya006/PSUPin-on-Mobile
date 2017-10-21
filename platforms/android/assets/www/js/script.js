@@ -17,32 +17,24 @@ $.get(url, function (data) {
         newdata.day = data[i].day;
         newdata.month = data[i].month;
         newdata.year = data[i].year;
-        var oneDay = 24*60*60*1000;
+        var oneDay = 24 * 60 * 60 * 1000;
         var today = new Date();
-        var firstDate = new Date(data[i].year,data[i].month,data[i].day);
-        console.log(data[i].day);
-        console.log(data[i].month);
-        console.log(data[i].year);
-        console.log(firstDate);
-        var secondDate = new Date(today.getFullYear(),today.getMonth()+1,today.getDate());
-        console.log(secondDate);
-        diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
-        console.log(diffDays);
-        if(diffDays===0){
+        var firstDate = new Date(data[i].year, data[i].month, data[i].day);
+        var secondDate = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+        diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / (oneDay)));
+        if (diffDays === 0) {
             newdata.timeline = "Today";
         }
-        if(diffDays!==0){
+        if (diffDays !== 0) {
             newdata.timeline = diffDays;
         }
-        console.log(JSON.stringify(newdata));
-        var updateUrl = url + "/"+data[i].id;
+        JSON.stringify(newdata);
+        var updateUrl = url + "/" + data[i].id;
         $.ajax({
-          url: updateUrl,
-          type: 'PUT',
-          data: newdata,
-          success: function (result) {
-            console.log('Updated!');
-          }
+            url: updateUrl,
+            type: 'PUT',
+            data: newdata,
+            success: function (result) {}
         });
     }
 });
@@ -68,11 +60,11 @@ ons.ready(function () {
                 'Heading: ' + position.coords.heading + '\n' +
                 'Speed: ' + position.coords.speed + '\n' +
                 'Timestamp: ' + position.timestamp + '\n');
-                var today = new Date();
-                var dd = today.getDate();
-                var mm = today.getMonth()+1; //January is 0!
-                var yyyy = today.getFullYear();
-                var date = dd+"/"+mm+"/"+yyyy;
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            var date = dd + "/" + mm + "/" + yyyy;
             $.post(url, {
                 photo: "https://vignette3.wikia.nocookie.net/lego/images/a/ac/No-Image-Basic.png",
                 lat: position.coords.latitude,
@@ -82,7 +74,7 @@ ons.ready(function () {
                 buliding: $("#choose-sel").val(),
                 room: $("#room").val(),
                 date: date,
-                timeline:"Today"
+                timeline: "Today"
             });
             alert('complete');
         };

@@ -15,33 +15,32 @@
     <script src="js/script.js"></script>
     <script id="template" type="x-tmpl-mustache">
         <div class="tweet-header">
-            <span class="list-item__title"><U><b>{{buliding}}</b></U></span>
-            <span id="dateCss" class="list-item__subtitle">{{day}}/{{month}}/{{year}}</span>
             <ons-button class="option-arrow" modifier="quiet" onclick="ons.openActionSheet({
-              cancelable: true,
-              buttons: [
-                'Delete {{id}}',
-                {
-                  label: 'Cancel',
-                  icon: 'md-close'
-                }
-              ]
-            }).then(function (index) { 
-                if(index===0){
-                    deletePin({{id}});
-                } 
-            })">
+                cancelable: true,
+                    buttons: [
+                        'Delete',
+                        {
+                            label: 'Cancel',
+                            icon: 'md-close'
+                        }
+                    ]
+                }).then(function (index) { 
+                    if(index===0){
+                        deletePin({{id}});
+                    } 
+                })">
                 <ons-icon class="right" icon="ion-close-round"></ons-icon>
-            </ons-button>
+            </ons-button><br>
+            <span class="list-item__title"><U><b>{{buliding}}&nbsp;#{{room}}</b></U></span>
+            <span id="dateCss" class="list-item__subtitle">{{day}}/{{month}}/{{year}}&nbsp;&nbsp;&nbsp;{{timeline}}D</span>
             <span class="list-item__content"><h4><ons-icon id="des" size "20px" icon="ion-paperclip"></ons-icon>{{description}}</h4></span>
             <img src="{{photo}}" style="width:100%">
         </div>
-
     </script>
 </head>
 
 <body>
-<img src="" alt="">
+    <img src="" alt="">
     <ons-page ng-controller="yourController">
         <ons-toolbar>
             <div class="center">
@@ -78,10 +77,10 @@
                 <div class="row">
                     <ons-icon class="set" icon="ion-ios-pricetags" size="20px"></ons-icon>
                     <ons-select id="choose-sel" onchange="editSelects(event)" class="size">
-                        <option value="Buliding 1">Buliding 1</option>
-                        <option value="Buliding 1A">Buliding 1A</option>
-                        <option value="Buliding 5">Buliding 5</option>
-                        <option value="Buliding 6">Buliding 6</option>
+                        <option value="Buliding1">Buliding1</option>
+                        <option value="Buliding1A">Buliding1A</option>
+                        <option value="Buliding5">Buliding5</option>
+                        <option value="Buliding6">Buliding6</option>
                     </ons-select>
                 </div>
                 <div class="row">

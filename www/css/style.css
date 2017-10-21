@@ -9,7 +9,7 @@
     margin-left: 175px;
 }
 #containerContent{
-    padding: 15px;
+    padding: 10px;
 }
 .row{
     padding-top: 15px;
@@ -27,12 +27,12 @@
     background-color: rgba(191, 229, 240, 0.38);
     border-radius: 10px;
 }
-.right{
-    padding-left:150px; 
-}
 #dateCss{
     padding-left: 20px;
 }
 #des{
     margin-right: 5px;
+}
+.option-arrow{
+    padding-left:336px;
 }
