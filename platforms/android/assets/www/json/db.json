@@ -27,20 +27,6 @@
       "month": "10",
       "year": "2017",
       "timeline": "2D"
-    },
-    {
-      "id": 3,
-      "title": "PSU Phuket",
-      "photo": "https://vignette3.wikia.nocookie.net/lego/images/a/ac/No-Image-Basic.png",
-      "lat": "7.892826099999999",
-      "lng": "98.3546051",
-      "description": "something",
-      "buliding": "Buliding5",
-      "room": "5302",
-      "day": "23",
-      "month": "10",
-      "year": "2017",
-      "timeline": "Today"
     }
   ]
 }
