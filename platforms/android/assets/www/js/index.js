@@ -2,9 +2,7 @@ var url = "http://localhost:3000/pins";
 $.get(url, function (data) {
     var template = $('#template').html();
     var diffDays = 0;
-    var count = 0;
     for (var i = 0; i < data.length; i++) {
-        count++;
         var rendered = Mustache.render(template, data[i]);
         $("#pin").append(rendered);
         var newdata = {};
@@ -39,15 +37,15 @@ $.get(url, function (data) {
             success: function (result) {}
         });
     }
-    var tab = "<ons-tab page='post.html' id='news' label='News' icon='ion-ios-clock' badge='" + count + "' active></ons-tab><ons-tab page='addPic.html' label='Post' icon='ion-camera' active-icon='ion-camera'></ons-tab><ons-tab page='mapPin.html' label='Map' icon='ion-ios-location' active-icon='ion-ios-location'></ons-tab>";
-    $("#tab").append(tab);
 });
+
+
 function deletePin(id) {
     $.ajax({
         url: url + "/" + id,
         method: "DELETE",
         success: function (data, status, xhr) {
-            alert('complete');
+            location.reload();
         }
     })
 }
@@ -83,6 +81,7 @@ ons.ready(function () {
                 timeline: "Today"
             });
             alert('complete');
+            location.reload('post.html')
         };
 
         function onError(error) {
@@ -93,6 +92,23 @@ ons.ready(function () {
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
     });
+
+    function notification() {
+        var count = 0;
+        $.ajax({
+            url: url,
+            method: "GET",
+            success: function (data, status, xhr) {
+                for (var i = 0; i < data.length; i++) {
+                    count++;
+                }
+                var tab = "<ons-tab page='post.html' id='news' label='News' icon='ion-ios-clock' badge='" + count + "' active></ons-tab><ons-tab page='addPic.html' label='Post' icon='ion-camera' active-icon='ion-camera'></ons-tab><ons-tab page='mapPin.html' label='Map' icon='ion-ios-location' active-icon='ion-ios-location'></ons-tab>";
+                $("#pin").append(rendered);
+            }
+        })
+        return count;
+    }
+
     function takePicture() {
         navigator.camera.getPicture(onSuccess, onFail, {
             quality: 50,
@@ -110,7 +126,6 @@ ons.ready(function () {
     }
 
     function myMap() {
-        var url = "http://localhost:3000/pins";
         var mapOptions = {
             center: {
                 lat: 7.89472,
