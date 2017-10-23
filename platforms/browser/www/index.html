@@ -8,13 +8,15 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/onsenui.css">
     <link rel="stylesheet" href="css/onsen-css-components.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/onsenui.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/index.js"></script>
     <script id="template" type="x-tmpl-mustache">
-        <div class="tweet-header">
+            <ons-button id = "blank"class="option-arrow" modifier="quiet">
+                &nbsp;
+            </ons-button>
             <ons-button class="option-arrow" modifier="quiet" onclick="ons.openActionSheet({
                 cancelable: true,
                     buttons: [
@@ -29,13 +31,16 @@
                         deletePin({{id}});
                     } 
                 })">
-                <ons-icon class="right" icon="ion-close-round"></ons-icon>
+                <ons-icon icon="ion-close-round"></ons-icon>
             </ons-button><br>
+        <div class="tweet-header">
             <span class="list-item__title"><U><b>{{buliding}}&nbsp;#{{room}}</b></U></span>
-            <span id="dateCss" class="list-item__subtitle">{{day}}/{{month}}/{{year}}&nbsp;&nbsp;&nbsp;{{timeline}}D</span>
+            <span id="dateCss" class="list-item__subtitle">{{day}}/{{month}}/{{year}}&nbsp;&nbsp;&nbsp;{{timeline}}</span>
             <span class="list-item__content"><h4><ons-icon id="des" size "20px" icon="ion-paperclip"></ons-icon>{{description}}</h4></span>
             <img src="{{photo}}" style="width:100%">
         </div>
+        <br>
+        <hr>
     </script>
 </head>
 
@@ -48,10 +53,8 @@
                 <b>PSU Pin</b>
             </div>
         </ons-toolbar>
-        <ons-tabbar swipeable position="auto">
-            <ons-tab page="post.html" id="news" label="News" icon="ion-ios-clock" badge="7" active></ons-tab>
-            <ons-tab page="addPic.html" label="Post" icon="ion-camera" active-icon="ion-camera"></ons-tab>
-            <ons-tab page="mapPin.html" label="Map" icon="ion-ios-location" active-icon="ion-ios-location"></ons-tab>
+        <ons-tabbar swipeable position="auto" id="tab">
+            
         </ons-tabbar>
     </ons-page>
 
@@ -99,7 +102,7 @@
     </template>
 
     <template id="mapPin.html">
-        <ons-page id="mapPin"></ons-page>
+        <div id="googleMap"></div>
     </template>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjdNfJ3PB8sehpRknmnAB6rXpxTSHeBzg&callback=myMap"></script>

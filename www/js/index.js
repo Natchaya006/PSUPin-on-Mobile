@@ -26,7 +26,7 @@ $.get(url, function (data) {
             newdata.timeline = "Today";
         }
         if (diffDays !== 0) {
-            newdata.timeline = diffDays;
+            newdata.timeline = diffDays + "D";
         }
         JSON.stringify(newdata);
         var updateUrl = url + "/" + data[i].id;
@@ -39,12 +39,13 @@ $.get(url, function (data) {
     }
 });
 
+
 function deletePin(id) {
     $.ajax({
         url: url + "/" + id,
         method: "DELETE",
         success: function (data, status, xhr) {
-            alert('complete');
+            location.reload();
         }
     })
 }
@@ -64,7 +65,8 @@ ons.ready(function () {
             var dd = today.getDate();
             var mm = today.getMonth() + 1; //January is 0!
             var yyyy = today.getFullYear();
-            var date = dd + "/" + mm + "/" + yyyy;
+            console.log(dd);
+            var dateP = dd + "/" + mm + "/" + yyyy;
             $.post(url, {
                 photo: "https://vignette3.wikia.nocookie.net/lego/images/a/ac/No-Image-Basic.png",
                 lat: position.coords.latitude,
@@ -73,10 +75,13 @@ ons.ready(function () {
                 description: $("#desc").val(),
                 buliding: $("#choose-sel").val(),
                 room: $("#room").val(),
-                date: date,
+                day: dd,
+                month: mm,
+                year: yyyy,
                 timeline: "Today"
             });
             alert('complete');
+            location.reload('post.html')
         };
 
         function onError(error) {
@@ -87,6 +92,22 @@ ons.ready(function () {
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
     });
+
+    function notification() {
+        var count = 0;
+        $.ajax({
+            url: url,
+            method: "GET",
+            success: function (data, status, xhr) {
+                for (var i = 0; i < data.length; i++) {
+                    count++;
+                }
+                var tab = "<ons-tab page='post.html' id='news' label='News' icon='ion-ios-clock' badge='" + count + "' active></ons-tab><ons-tab page='addPic.html' label='Post' icon='ion-camera' active-icon='ion-camera'></ons-tab><ons-tab page='mapPin.html' label='Map' icon='ion-ios-location' active-icon='ion-ios-location'></ons-tab>";
+                $("#pin").append(rendered);
+            }
+        })
+        return count;
+    }
 
     function takePicture() {
         navigator.camera.getPicture(onSuccess, onFail, {
@@ -104,18 +125,31 @@ ons.ready(function () {
         }
     }
 
-
-
     function myMap() {
-        var loca = new google.maps.LatLng(lat, lng);
-        var mapProp = {
-            center: loca,
-            zoom: 19,
-        };
-        var map = new google.maps.Map(document.getElementById("mpaPin"), mapProp);
-        var marker = new google.maps.Marker({
-            position: loca,
-            map: map
+        var mapOptions = {
+            center: {
+                lat: 7.89472,
+                lng: 98.35220
+            },
+            zoom: 17,
+        }
+        var maps = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+        var marker, info;
+        $.get(url, function (jsonObj) {
+            $.each(jsonObj, function (i, item) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(item.lat, item.lng),
+                    map: maps,
+                    title: item.room
+                });
+                info = new google.maps.InfoWindow();
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        info.setContent(item.room);
+                        info.open(maps, marker);
+                    }
+                })(marker, i));
+            });
         });
     }
 });
