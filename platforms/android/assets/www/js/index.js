@@ -1,8 +1,18 @@
-var url = "http://172.19.195.163:3000/pins";
+var url = "http://172.19.246.194:3000/pins";
+var lat;
+var lng;
+var img;
+var onSuccess = function (position) {
+    lat = position.coords.latitude;
+    lng = position.coords.longitude;
+};
+function onError(error) {
+    alert('code: ' + error.code + '\n' +
+        'message: ' + error.message + '\n');
+}
+navigator.geolocation.getCurrentPosition(onSuccess, onError);
 document.addEventListener("init", function (event) {
     if (event.target.matches('#post')) {
-        console.log("ready");
-        
         $.get(url, function (data) {
             var template = $('#template').html();
             var diffDays = 0;
@@ -48,19 +58,17 @@ document.addEventListener("init", function (event) {
             $("#news").attr("badge", countN);
         });
 
-        
+
         $('#takephoto').click(function () {
-            console.log("Take a photo");
-            alert("Take a photo");
             navigator.camera.getPicture(onSuccess, onFail, {
                 quality: 50,
                 destinationType: Camera.DestinationType.FILE_URI
             });
 
             function onSuccess(imageURI) {
-                console.log(imageURI);
                 var image = $("#preview");
                 image.attr("src", imageURI);
+                img = imageURI;
             }
 
             function onFail(message) {
@@ -68,43 +76,30 @@ document.addEventListener("init", function (event) {
             }
         });
         $("#addPin").click(function () {
-            console.log("add pin clicked");
-            var onSuccess = function (position) {
-                $("#location").val(position.coords.latitude + "," + position.coords.longitude);
-                var today = new Date();
-                var dd = today.getDate();
-                var mm = today.getMonth() + 1; //January is 0!
-                var yyyy = today.getFullYear();
-                console.log(dd);
-                var dateP = dd + "/" + mm + "/" + yyyy;
-                $.post(url, {
-                    photo: "https://vignette3.wikia.nocookie.net/lego/images/a/ac/No-Image-Basic.png",
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude,
-                    title: "PSU Phuket",
-                    description: $("#desc").val(),
-                    buliding: $("#choose-sel").val(),
-                    room: $("#room").val(),
-                    day: dd,
-                    month: mm,
-                    year: yyyy,
-                    timeline: "Today"
-                });
-                alert('complete');
-                location.reload('post.html')
-            };
-
-            function onError(error) {
-                console.log('code: ' + error.code + '\n' +
-                    'message: ' + error.message + '\n');
-            }
-
-            navigator.geolocation.getCurrentPosition(onSuccess, onError);
-
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            var dateP = dd + "/" + mm + "/" + yyyy;
+            $.post(url, {
+                photo: "https://vignette3.wikia.nocookie.net/lego/images/a/ac/No-Image-Basic.png",// หรือ imgUrl ในกรณี run รอบนั้นถ่ายรูปได้
+                lat: lat,
+                lng: lng,
+                title: "PSU Phuket",
+                description: $("#desc").val(),
+                buliding: $("#choose-sel").val(),
+                room: $("#room").val(),
+                day: dd,
+                month: mm,
+                year: yyyy,
+                timeline: "Today"
+            });
+            alert('complete');
+            location.reload('post.html')
         });
-
     }
 });
+
 function deletePin(idT) {
     $.ajax({
         url: url + "/" + idT,

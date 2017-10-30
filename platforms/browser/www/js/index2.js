@@ -1,5 +1,5 @@
 function myMap() {
-    var url = "http://172.19.195.163:3000/pins";
+    var url = "http://172.19.246.194:3000/pins";
     var mapOptions = {
         center: {
             lat: 7.89472,
